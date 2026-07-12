@@ -217,7 +217,7 @@ function Band({
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={2.25}
+            scale={5.5}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}

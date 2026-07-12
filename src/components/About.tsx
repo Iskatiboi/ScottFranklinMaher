@@ -4,8 +4,8 @@ import './About.css';
 export default function About() {
   return (
     <section className="about" id="about">
-      <div className="about-container">
-        <div className="about-left">
+      <div className="about-left">
+        <div className="about-content">
           <h2 className="about-title">
             ABOUT <span className="about-title-accent">ME</span>
           </h2>
@@ -38,15 +38,15 @@ export default function About() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="about-right">
-          <Lanyard
-            position={[0, 0, 30]}
-            gravity={[0, -40, 0]}
-            fov={20}
-            transparent={true}
-          />
-        </div>
+      <div className="about-right">
+        <Lanyard
+          position={[0, 0, 30]}
+          gravity={[0, -40, 0]}
+          fov={20}
+          transparent={true}
+        />
       </div>
     </section>
   );

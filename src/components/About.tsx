@@ -42,7 +42,7 @@ export default function About() {
 
       <div className="about-right">
         <Lanyard
-          position={[0, 1, 40]}
+          position={[0, 1, 38]}
           gravity={[0, -40, 0]}
           fov={20}
           transparent={true}

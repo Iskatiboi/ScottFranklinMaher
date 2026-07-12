@@ -6,11 +6,6 @@ import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
-// @ts-ignore
-import cardGLB from './card.glb';
-// @ts-ignore
-import lanyard from './lanyard.png';
-
 import * as THREE from 'three';
 import './Lanyard.css';
 
@@ -115,8 +110,8 @@ function Band({
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
-  const { nodes, materials } = useGLTF(cardGLB);
-  const texture = useTexture(lanyardImage || lanyard);
+  const { nodes, materials } = useGLTF('/card.glb');
+  const texture = useTexture(lanyardImage || '/lanyard.png');
   const frontTex = useTexture(frontImage || BLANK_PIXEL);
   const backTex = useTexture(backImage || BLANK_PIXEL);
 

@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="hero-content">
         <div className="hero-left">
-          <h1 className="hero-name">SCOTT MAHER</h1>
+          <h1 className="hero-name">SCOTT<br />MAHER</h1>
           <p className="hero-roles">Web Developer · IT Specialist · Adventurer</p>
         </div>
 
@@ -26,8 +26,8 @@ export default function Hero() {
           <div className="hero-phrases">
             <p>Passionate about creating seamless digital experiences</p>
             <p>Turning complex problems into simple solutions</p>
-            <p>Always exploring, always learning</p>
-            <p>Let's build something great together</p>
+            <p>Always exploring, always learning. Let's build something great together</p>
+            
           </div>
           <a href="#projects">
             <LiquidMetalButton>View My Work →</LiquidMetalButton>

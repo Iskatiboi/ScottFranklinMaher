@@ -1,0 +1,128 @@
+.projects {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.projects-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.projects-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 48px 0;
+  line-height: 1.1;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.project-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+}
+
+.project-card-desc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.2);
+  color: #a855f7;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.project-link {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+}
+
+.project-link:hover {
+  color: #a855f7;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .projects-title {
+    font-size: 3rem;
+    margin-bottom: 32px;
+  }
+
+  .projects-overlay {
+    padding: 80px 30px 40px;
+    justify-content: flex-start;
+  }
+}

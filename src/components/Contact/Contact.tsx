@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion } from 'motion/react';
 import { FiMail, FiGithub } from 'react-icons/fi';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal';
@@ -11,6 +11,7 @@ import './Contact.css';
 const EMAIL = 'scottfranklinmaher@gmail.com';
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [showToast, setShowToast] = useState(false);
 
   const handleCopyEmail = useCallback(() => {
@@ -20,7 +21,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" ref={sectionRef}>
       <div className="contact-orb">
         <Orb
           hue={270}
@@ -28,6 +29,7 @@ export default function Contact() {
           rotateOnHover={true}
           forceHoverState={false}
           backgroundColor="#0a0a0a"
+          trackRef={sectionRef}
         />
       </div>
       <div className="contact-inner">

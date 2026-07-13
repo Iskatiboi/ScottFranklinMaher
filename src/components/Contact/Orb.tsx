@@ -1,5 +1,6 @@
 import { Mesh, Program, Renderer, Triangle, Vec3 } from 'ogl';
 import { useEffect, useRef } from 'react';
+import type { RefObject } from 'react';
 import './Orb.css';
 
 export default function Orb({
@@ -7,7 +8,15 @@ export default function Orb({
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
-  backgroundColor = '#000000'
+  backgroundColor = '#000000',
+  trackRef
+}: {
+  hue?: number;
+  hoverIntensity?: number;
+  rotateOnHover?: boolean;
+  forceHoverState?: boolean;
+  backgroundColor?: string;
+  trackRef?: RefObject<HTMLElement | null>;
 }) {
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -252,8 +261,9 @@ export default function Orb({
       targetHover = 0;
     };
 
-    el.addEventListener('mousemove', handleMouseMove);
-    el.addEventListener('mouseleave', handleMouseLeave);
+    const trackEl = trackRef?.current || el;
+    trackEl.addEventListener('mousemove', handleMouseMove);
+    trackEl.addEventListener('mouseleave', handleMouseLeave);
 
     let rafId: number;
     const update = (t: number) => {
@@ -280,8 +290,8 @@ export default function Orb({
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
-      el.removeEventListener('mousemove', handleMouseMove);
-      el.removeEventListener('mouseleave', handleMouseLeave);
+      trackEl.removeEventListener('mousemove', handleMouseMove);
+      trackEl.removeEventListener('mouseleave', handleMouseLeave);
       if (gl.canvas.parentNode) el.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };

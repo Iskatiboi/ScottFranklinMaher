@@ -1,4 +1,4 @@
-import { motion } from 'motion';
+import { motion } from 'motion/react';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import LiquidEther from './LiquidEther/LiquidEther';
 import './Projects.css';

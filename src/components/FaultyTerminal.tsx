@@ -208,15 +208,36 @@ void main() {
 }
 `;
 
-function hexToRgb(hex) {
+function hexToRgb(hex: string) {
   let h = hex.replace('#', '').trim();
   if (h.length === 3)
     h = h
       .split('')
-      .map(c => c + c)
+      .map((c: string) => c + c)
       .join('');
   const num = parseInt(h, 16);
   return [((num >> 16) & 255) / 255, ((num >> 8) & 255) / 255, (num & 255) / 255];
+}
+
+interface FaultyTerminalProps extends React.ComponentPropsWithoutRef<'div'> {
+  scale?: number;
+  gridMul?: [number, number];
+  digitSize?: number;
+  timeScale?: number;
+  pause?: boolean;
+  scanlineIntensity?: number;
+  glitchAmount?: number;
+  flickerAmount?: number;
+  noiseAmp?: number;
+  chromaticAberration?: number;
+  dither?: number | boolean;
+  curvature?: number;
+  tint?: string;
+  mouseReact?: boolean;
+  mouseStrength?: number;
+  dpr?: number;
+  pageLoadAnimation?: boolean;
+  brightness?: number;
 }
 
 export default function FaultyTerminal({
@@ -241,10 +262,10 @@ export default function FaultyTerminal({
   className,
   style,
   ...rest
-}) {
-  const containerRef = useRef(null);
-  const programRef = useRef(null);
-  const rendererRef = useRef(null);
+}: FaultyTerminalProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const programRef = useRef<Program | null>(null);
+  const rendererRef = useRef<Renderer | null>(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const smoothMouseRef = useRef({ x: 0.5, y: 0.5 });
   const frozenTimeRef = useRef(0);
@@ -256,7 +277,7 @@ export default function FaultyTerminal({
 
   const ditherValue = useMemo(() => (typeof dither === 'boolean' ? (dither ? 1 : 0) : dither), [dither]);
 
-  const handleMouseMove = useCallback(e => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     const ctn = containerRef.current;
     if (!ctn) return;
     const rect = ctn.getBoundingClientRect();
@@ -324,7 +345,7 @@ export default function FaultyTerminal({
     resizeObserver.observe(ctn);
     resize();
 
-    const update = t => {
+    const update = (t: number) => {
       rafRef.current = requestAnimationFrame(update);
 
       if (pageLoadAnimation && loadAnimationStartRef.current === 0) {

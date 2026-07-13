@@ -115,7 +115,7 @@ export const LiquidMetalButton = forwardRef<
                 ref={ref}
                 disabled={disabled}
                 className={cn(
-                    "relative group cursor-pointer border-none bg-transparent p-0 outline-none transition-transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
+                    "relative group cursor-pointer border-none bg-transparent p-0 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 transition-transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
                     className
                 )}
                 {...props}

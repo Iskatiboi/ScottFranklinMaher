@@ -28,8 +28,6 @@ export default function ContactCard({
     }
   };
 
-  const isCopy = !!onCopy;
-
   return (
     <motion.div
       className="contact-card"
@@ -48,7 +46,6 @@ export default function ContactCard({
       <button
         className="contact-card-btn"
         onClick={handleClick}
-        {...(isCopy ? {} : { role: 'link' })}
       >
         {buttonLabel}
       </button>

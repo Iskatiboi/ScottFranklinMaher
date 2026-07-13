@@ -21,6 +21,8 @@ export default function Toast({ show, message, icon, onDismiss }: ToastProps) {
     <AnimatePresence>
       {show && (
         <motion.div
+          role="status"
+          aria-live="polite"
           className="toast"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

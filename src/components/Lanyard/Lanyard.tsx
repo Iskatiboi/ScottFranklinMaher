@@ -111,7 +111,7 @@ function Band({
   const ang = new THREE.Vector3();
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
-  const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
+  const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 } as const;
   const { nodes, materials } = useGLTF(cardGLB);
   const texture = useTexture(lanyardImage || lanyard);
   const frontTex = useTexture(frontImage || BLANK_PIXEL);
@@ -163,10 +163,10 @@ function Band({
   const [dragged, drag] = useState<false | THREE.Vector3>(false);
   const [hovered, hover] = useState(false);
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 3]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 3]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 3]);
-  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.5, 0]]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 2]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 2]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 2]);
+  useSphericalJoint(j3, card, [[0, 0, 0], [0, 2.5, 0]]);
 
   useEffect(() => {
     if (hovered) {

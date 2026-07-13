@@ -13,10 +13,10 @@ export default function AvailabilityCard() {
       </p>
       <div className="availability-meta">
         <span className="availability-meta-item">
-          <FiMapPin size={14} /> Philippines
+          <span aria-hidden="true"><FiMapPin size={14} /></span> Philippines
         </span>
         <span className="availability-meta-item">
-          <FiClock size={14} /> Usually replies within 24 hours
+          <span aria-hidden="true"><FiClock size={14} /></span> Usually replies within 24 hours
         </span>
       </div>
     </div>

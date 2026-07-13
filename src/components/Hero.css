@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .hero-video {
@@ -28,6 +29,17 @@
   );
 }
 
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 10;
@@ -35,7 +47,8 @@
   justify-content: space-between;
   align-items: flex-end;
   height: 100%;
-  padding: 0 0 20px;
+  padding: 0 2rem 20px;
+  animation: heroFadeUp 1s ease-out forwards;
 }
 
 .hero-left {
@@ -83,4 +96,17 @@
   margin: 0;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
   text-align: justify;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none;
+  }
+  .hero-name,
+  .hero-roles,
+  .hero-phrases p {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

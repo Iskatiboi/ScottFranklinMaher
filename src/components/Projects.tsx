@@ -6,6 +6,8 @@ import './Projects.css';
 interface Project {
   title: string;
   description: string;
+  shortDesc: string;
+  highlights: string[];
   tags: string[];
   githubUrl?: string;
   demoUrl?: string;
@@ -15,34 +17,50 @@ const projects: Project[] = [
   {
     title: 'Pickle Turf',
     description:
-      'Pickleball court booking & reservation system with inventory management and automated revenue tracking.',
-    tags: ['Django', 'PostgreSQL', 'Vercel'],
-    githubUrl: '#',
-    demoUrl: '#',
+      'A court reservation system for pickleball facilities. Players book courts with instant confirmation; owners manage inventory, set dynamic pricing, and track revenue through an admin dashboard without manual spreadsheets.',
+    shortDesc: 'Court booking with admin dashboard, inventory, and revenue tracking.',
+    highlights: [
+      'Admin dashboard for revenue & inventory management',
+      'Real-time court availability & instant booking',
+      'JWT authentication with role-based access',
+    ],
+    tags: ['Django', 'DRF', 'PostgreSQL', 'JWT', 'Vercel'],
   },
   {
     title: '7 Evelyn',
     description:
-      'E-commerce platform for selling products and goods.',
-    tags: ['Django', 'PostgreSQL', 'Vercel'],
-    githubUrl: '#',
-    demoUrl: '#',
+      'A full-stack e-commerce platform where customers browse products, add to cart, and check out securely. Admins manage inventory, process orders, and track fulfillment through a dedicated dashboard.',
+    shortDesc: 'Product catalog, secure checkout, and admin order management.',
+    highlights: [
+      'Shopping cart with secure checkout flow',
+      'Admin dashboard for orders & inventory',
+      'Customer order tracking & status updates',
+    ],
+    tags: ['Django', 'DRF', 'PostgreSQL', 'Stripe', 'Vercel'],
   },
   {
     title: 'PeerHelp',
     description:
-      'Campus help webapp with geotracker, real-time chat, and points-based system for connecting students.',
-    tags: ['Django', 'PostgreSQL', 'Vercel'],
-    githubUrl: '#',
-    demoUrl: '#',
+      'A real-time campus assistance platform where students request and offer help using live geolocation, instant messaging via WebSockets, and a gamified points system that rewards participation.',
+    shortDesc: 'On-campus help with live maps, real-time chat, and rewards.',
+    highlights: [
+      'Live geolocation tracking with interactive maps',
+      'Real-time messaging via WebSockets',
+      'Gamified points & leaderboard system',
+    ],
+    tags: ['Django', 'DRF', 'PostgreSQL', 'WebSockets', 'Maps API'],
   },
   {
     title: 'Client Portfolio',
     description:
-      'Personal portfolio website for a freelance client.',
-    tags: ['Astro'],
-    githubUrl: '#',
-    demoUrl: '#',
+      'A performance-optimized portfolio site built with Astro\'s islands architecture. Features responsive layouts, optimized image delivery, structured SEO metadata, and automated CI/CD through Vercel.',
+    shortDesc: 'Responsive portfolio with SEO, optimized assets, and CI/CD.',
+    highlights: [
+      'Astro islands architecture for fast loads',
+      'SEO metadata & image optimization',
+      'Automated CI/CD via Vercel',
+    ],
+    tags: ['Astro', 'Vercel'],
   },
 ];
 
@@ -65,16 +83,6 @@ export default function Projects() {
       </div>
 
       <div className="projects-overlay">
-        <motion.h2
-          className="projects-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          PROJECTS
-        </motion.h2>
-
         <div className="projects-grid">
           {projects.map((project, index) => (
             <motion.div
@@ -90,7 +98,13 @@ export default function Projects() {
               }}
             >
               <h3 className="project-card-title">{project.title}</h3>
-              <p className="project-card-desc">{project.description}</p>
+              <p className="project-card-desc project-card-desc-long">{project.description}</p>
+              <p className="project-card-desc project-card-desc-short">{project.shortDesc}</p>
+              <ul className="project-highlights">
+                {project.highlights.map((h) => (
+                  <li key={h} className="project-highlight">{h}</li>
+                ))}
+              </ul>
               <div className="project-tags">
                 {project.tags.map((tag) => (
                   <span key={tag} className="project-tag">

@@ -10,8 +10,10 @@ export default function Hero() {
         muted
         loop
         playsInline
+        aria-hidden="true"
+        tabIndex={-1}
       >
-        <source src="/video.mp4" type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}video.mp4`} type="video/mp4" />
       </video>
 
       <div className="hero-overlay" />
@@ -29,9 +31,11 @@ export default function Hero() {
             <p>Always exploring, always learning. Let's build something great together</p>
             
           </div>
-          <a href="#projects">
-            <LiquidMetalButton>View My Work →</LiquidMetalButton>
-          </a>
+          <LiquidMetalButton onClick={() => {
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
+            View My Work →
+          </LiquidMetalButton>
         </div>
       </div>
     </section>

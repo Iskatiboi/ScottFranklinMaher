@@ -52,12 +52,15 @@ export default function Projects() {
       <div className="projects-bg">
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B497CF']}
-          mouseForce={20}
-          cursorSize={100}
-          resolution={0.5}
+          mouseForce={15}
+          cursorSize={80}
+          resolution={0.35}
+          iterationsPoisson={16}
+          iterationsViscous={16}
+          BFECC={false}
           autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
+          autoSpeed={0.3}
+          autoIntensity={1.5}
         />
       </div>
 

@@ -13,8 +13,9 @@ export default function Contact() {
   const [showToast, setShowToast] = useState(false);
 
   const handleCopyEmail = useCallback(() => {
-    navigator.clipboard.writeText(EMAIL);
-    setShowToast(true);
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setShowToast(true);
+    });
   }, []);
 
   return (

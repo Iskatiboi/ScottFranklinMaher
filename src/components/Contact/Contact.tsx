@@ -5,6 +5,7 @@ import { LiquidMetalButton } from '@/components/ui/liquid-metal';
 import AvailabilityCard from './AvailabilityCard';
 import ContactCard from './ContactCard';
 import Toast from './Toast';
+import Orb from './Orb';
 import './Contact.css';
 
 const EMAIL = 'scottfranklinmaher@gmail.com';
@@ -20,6 +21,15 @@ export default function Contact() {
 
   return (
     <section className="contact" id="contact">
+      <div className="contact-orb">
+        <Orb
+          hue={270}
+          hoverIntensity={0.5}
+          rotateOnHover={true}
+          forceHoverState={false}
+          backgroundColor="#0a0a0a"
+        />
+      </div>
       <div className="contact-inner">
         <motion.div
           className="contact-header"

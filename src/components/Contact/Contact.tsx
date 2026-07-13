@@ -1,10 +1,12 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { FiMail, FiGithub } from 'react-icons/fi';
+import { InteractiveParticles } from '@/components/ui/interactive-particles';
 import AvailabilityCard from './AvailabilityCard';
 import ContactCard from './ContactCard';
 import CTABanner from './CTABanner';
 import Toast from './Toast';
+import particlesSrc from '../Lanyard/face.jpg';
 import './Contact.css';
 
 const EMAIL = 'scottfranklinmaher@gmail.com';
@@ -20,6 +22,18 @@ export default function Contact() {
 
   return (
     <section className="contact" id="contact">
+      <div className="contact-bg">
+        <InteractiveParticles
+          src={particlesSrc}
+          allowUpload={false}
+          color="#a855f7"
+          size={0.8}
+          randomness={0.8}
+          depth={1.5}
+          threshold={40}
+          background="transparent"
+        />
+      </div>
       <div className="contact-inner">
         <motion.div
           className="contact-header"

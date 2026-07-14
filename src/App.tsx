@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="app" style={{ overflow: 'hidden', background: '#0a0a0a' }}>
       <Header />
-      <AnimatePresence mode="wait">
-        <Suspense fallback={<div style={{ height: '100vh', background: '#0a0a0a' }} />}>
+      <Suspense fallback={<div style={{ height: '100vh', background: '#0a0a0a' }} />}>
+        <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageTransition><Hero /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
@@ -24,8 +24,8 @@ function App() {
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </Suspense>
-      </AnimatePresence>
+        </AnimatePresence>
+      </Suspense>
     </div>
   );
 }

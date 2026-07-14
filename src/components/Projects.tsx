@@ -66,7 +66,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section className="projects" id="projects">
+    <section className="projects">
       <div className="projects-bg">
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B497CF']}

@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-}
+
 
 @theme {
   --color-background: hsl(0 0% 100%);

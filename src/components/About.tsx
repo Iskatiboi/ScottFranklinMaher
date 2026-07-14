@@ -44,7 +44,7 @@ const networkingItems: CarouselItem[] = [
 
 export default function About() {
   return (
-    <section className="about" id="about">
+    <section className="about">
       <div className="about-bg">
         <Aurora
           colorStops={['#7cff67', '#B497CF', '#5227FF']}

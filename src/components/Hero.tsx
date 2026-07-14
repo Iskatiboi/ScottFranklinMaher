@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal';
 import './Hero.css';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="hero">
       <video
@@ -29,11 +32,8 @@ export default function Hero() {
             <p>Passionate about creating seamless digital experiences</p>
             <p>Turning complex problems into simple solutions</p>
             <p>Always exploring, always learning. Let's build something great together</p>
-            
           </div>
-          <LiquidMetalButton onClick={() => {
-            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-          }}>
+          <LiquidMetalButton onClick={() => navigate('/projects')}>
             View My Work →
           </LiquidMetalButton>
         </div>

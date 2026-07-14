@@ -21,7 +21,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="contact" id="contact" ref={sectionRef}>
+    <section className="contact" ref={sectionRef}>
       <MotionConfig reducedMotion="user">
         <div className="contact-orb">
           <Orb
